@@ -1,2 +1,2 @@
-Implementations of "Campo Minato" and "Stack
+Implementations of "Campo Minato" and "Stacker"
 # Coding-Week
