@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Stile per l'intestazione */
+h1{
+    color: #2a8d39; /* Colore del testo */
+    font-size: 24px; /* Dimensione del carattere */
+}
+
+/* Stile per i paragrafi */
+p{
+    color:rgb(112, 21, 21); /* Colore del testo */
+    font-size: 16px; /* Dimensione del carattere */
+    margin-bottom: 10px; /* Margine inferiore */
+}
+ /* Regole generiche */
+body{
+    padding: 16px;
+    line-height: 1;
+    color: rgb(0, 23, 50);
+    background-color: rgb(232, 238, 216);
+    font-family: 'Darker Grotesque', sans-serif;
+ }
+
+ .game-container{
+    width: 484px;
+    /* border: 1px dashed black; */
+ }
+
+ /* Pannello di gioco */
+ h1{
+    font-size: 40px;
+ }
+
+.score{
+    font-size: 32px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Tabellone di gioco */
+.game-board{
+    position: relative;
+    border: px solid rgb(0, 23, 50);
+}
+
+.grid{
+    height: 480px;
+    width: 480px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.cell{
+    width: 48px;
+    height: 48px;
+    border: 1px dashed black;
+    cursor: pointer;
+}
+
+.cell-dark{
+    background-color: rgb(203,224,221);
+}
+
+.cell-clicked{
+    background-color: rgb(157,197,199);
+}
+.cell-bomb{
+    background-color: rgb(241,117,78);
+    background-image: url('images/DSCF1121.JPG');
+    background-size: contain;
+}
+
+.cell-clicked,
+.cell-bomb{
+    cursor: not-allowed;
+}
+
+/* Schermata di fine gioco */
+.end-game-screen{
+    background-color: rgba(241, 117, 78, 0.6);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.end-game-text{
+    font-size: 48px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 16px;
+}
+
+.win{
+    background-color: rgba(78,241,187,0.6);
+}
+
+button{
+    border: 2px solid rgb(0, 23, 50);
+    font-size: 24px;
+    font-family: 'Darker Grotesque', sans-serif;
+    text-transform: uppercase;
+    padding: 4px 20px 8px 20px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(218, 22, 153);
+}
+
+.hidden{
+    display: none;
+}
+
