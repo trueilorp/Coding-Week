@@ -47,7 +47,7 @@ body{
     border: px solid rgb(0, 23, 50);
 }
 
-.grid{
+.grid{  
     height: 480px;
     width: 480px;
     display: flex;
@@ -66,12 +66,14 @@ body{
     background-color: rgb(203,224,221);
 }
 
+.cell:hover,
 .cell-clicked{
     background-color: rgb(157,197,199);
 }
+
 .cell-bomb{
-    background-color: rgb(241,117,78);
-    background-image: url('images/DSCF1121.JPG');
+    /* background-color: rgb(241,117,78); */
+    background-image: url('images/bomba.png');
     background-size: contain;
 }
 
