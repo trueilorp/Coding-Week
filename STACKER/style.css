@@ -1,11 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Stile per l'intestazione */
-h1 {
-    color: #28dc61; /* Colore del testo */
-    font-size: 4px; /* Dimensione del carattere */
+h1{
+    color: #2a8d39; /* Colore del testo */
+    font-size: 24px; /* Dimensione del carattere */
 }
 
 /* Stile per i paragrafi */
-p {
+p{
     color:rgb(112, 21, 21); /* Colore del testo */
     font-size: 16px; /* Dimensione del carattere */
     margin-bottom: 10px; /* Margine inferiore */
@@ -15,19 +21,19 @@ body{
     padding: 16px;
     line-height: 1;
     color: rgb(0, 23, 50);
-    background-color: rgb(186, 186, 43);
+    background-color: rgb(232, 238, 216);
     font-family: 'Darker Grotesque', sans-serif;
  }
 
-.game-container{
-    width: 484px;
-    border: 1px dashed black;
+ .game-container{
+    width: calc((48px * 6) + 4px);
+    /* border: 1px dashed black; */
  }
 
  /* Pannello di gioco */
-h1{
+ h1{
     font-size: 40px;
-}
+ }
 
 .score{
     font-size: 32px;
@@ -38,31 +44,42 @@ h1{
 /* Tabellone di gioco */
 .game-board{
     position: relative;
-    border: 2px solid rgb(0, 23, 50);
+    border: px solid rgb(0, 23, 50);
+    margin-bottom: 8px;
 }
 
-.grid{
-    height: 100px;
-    width: 100px;
+.grid{  
+    /* height: 480px; */
+    width: calc((48px * 6) + 4px);
     display: flex;
-    flex-wrap: wrap; /*puoi andare a capo*/
-    align-content: flex-start;
+    flex-wrap: wrap;
+    /* align-content: flex-start; */
 }
 
 .cell{
     width: 48px;
     height: 48px;
-    /* border: 1px dashed black; */
+    border: 1px dashed black;
     cursor: pointer;
 }
 
 .cell-dark{
-    background-color: aquamarine;
+    background-color: rgb(203,224,221);
+}
+
+.bar {
+    background-color: rgb(241,117,78);
+    border: 2px solid black;
+    border-radius: 8px;
+}
+.cell:hover,
+.cell-clicked{
+    background-color: rgb(157,197,199);
 }
 
 .cell-bomb{
-    background-color: burlywood;
-    background-image: url('images/DSCF1121.JPG');
+    /* background-color: rgb(241,117,78); */
+    background-image: url('images/bomba.png');
     background-size: contain;
 }
 
@@ -73,7 +90,7 @@ h1{
 
 /* Schermata di fine gioco */
 .end-game-screen{
-    background-color: rgba(31, 243, 169, 0.6);
+    background-color: rgba(241, 117, 78, 0.6);
     position: absolute;
     top: 0px;
     left: 0px;
@@ -86,33 +103,34 @@ h1{
     justify-content: center;
 }
 
-.win{
-    background-color: green;
-
-}
-
 .end-game-text{
-    font-size: 40px;
+    font-size: 48px;
     line-height: 1.2;
     text-transform: uppercase;
     font-family: 'Press Start 2P', cursive;
     margin-bottom: 16px;
 }
 
-button{
-    border: 2px solid rgb(112, 21, 21);
+.win{
+    background-color: rgba(78,241,187,0.6);
+}
+
+.button{
+    border: 2px solid rgb(0, 23, 50);
     font-size: 24px;
     font-family: 'Darker Grotesque', sans-serif;
     text-transform: uppercase;
     padding: 4px 20px 8px 20px;
     cursor: pointer;
+} 
 
+.button:hover{
+    background-color: rgb(218, 22, 153);
 }
 
-button:hover{
-    background-color: rgb(218, 218, 22);
+.button-full{
+    width: 290px;
 }
-
 .hidden{
     display: none;
 }
