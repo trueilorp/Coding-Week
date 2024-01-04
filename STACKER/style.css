@@ -103,13 +103,19 @@ body{
     justify-content: center;
 }
 
-.end-game-text{
+.end-game-text {
     font-size: 48px;
     line-height: 1.2;
     text-transform: uppercase;
     font-family: 'Press Start 2P', cursive;
     margin-bottom: 16px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Per centrare il testo orizzontalmente */
 }
+
 
 .win{
     background-color: rgba(78,241,187,0.6);
@@ -131,6 +137,7 @@ body{
 .button-full{
     width: 290px;
 }
+
 .hidden{
     display: none;
 }

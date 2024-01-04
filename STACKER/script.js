@@ -3,9 +3,9 @@
 const grid = document.querySelector('.grid');
 const stackBtn = document.querySelector('.stack');
 const scoreCounter = document.querySelector('.score-counter');
-const endGameScreen = document.querySelector('.end-game-screen')
-const endGameText = document.querySelector('.end-game-text')
-const playAgainButton = document.querySelector('.play-again')
+const endGameScreen = document.querySelector('.end-game-screen');
+const endGameText = document.querySelector('.end-game-text');
+const playAgainButton = document.querySelector('.play-again');
 
 const gridMatrix = [
     [0,0,0,0,0,0],
@@ -143,7 +143,7 @@ function endGame(isVictory){
         endGameScreen.classList.add('win');
         endGameText.innerHTML = 'YOU<br>WIN';
     }
-    endGameScreen.classList.remove('hidden');
+    endGameScreen.classList.remove('hidden'); //se si perde viene rimosso l'hidden cosi viene mostrata la scritta game-over
 }
 
 draw();
@@ -153,10 +153,10 @@ function main(){
     moveBar();
     draw();
 }
-
+ 
 stackBtn.addEventListener('click', onStack);
 playAgainButton.addEventListener('click', function(){
     location.reload();
 });
 
-t = setInterval(main, 500);
+t = setInterval(main, 100);
