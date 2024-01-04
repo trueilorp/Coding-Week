@@ -12,6 +12,8 @@ const gridMatrix = [
     [0,0,0,0,0,0],
     [1,1,1,0,0,0],
 ];
+let currentRowIndex = gridMatrix.length - 1;
+let barDirection = 'right';
 
 function draw(){
     grid.innerHTML = '';
@@ -31,17 +33,51 @@ function draw(){
                 cell.classList.add('bar');
             }
 
-            grid.appendChild(cell)
+            grid.appendChild(cell);
         });
     });
 }
 
-function moveBar(){
-    
+function moveRight(row){
+    row.pop();
+    row.unshift(0);
 }
-draw();
+
+function moveLeft(row){
+    row.shift();
+    row.push(0);
+}
+
+function isRightEdge(row){
+    const lastElement = row[row.length - 1];
+    return lastElement === 1;
+}
+
+function isLeftEdge(row){
+    const firstElement = row[0];
+    return firstElement === 1;
+}
+
+function moveBar(){
+    const row = gridMatrix[currentRowIndex];
+    if (barDirection === 'right'){
+        moveRight(row);
+        if (isRightEdge(row)){
+            barDirection = 'left';
+        }
+    }else if (barDirection === 'left'){
+        moveLeft(row);
+        if (isLeftEdge(row)){
+            barDirection = 'right';
+        }
+    }
+}
+
 
 function main(){
-
-
+    draw();
+    moveBar();
+    draw();
 }
+
+setInterval(main, 500);
