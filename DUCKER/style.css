@@ -25,8 +25,8 @@ body{
     font-family: 'Darker Grotesque', sans-serif;
  }
 
- .game-container{
-    width: 432px;
+.game-container{
+    width: calc(48px * 9);
     /* border: 1px dashed black; */
  }
 
@@ -49,11 +49,11 @@ body{
 }
 
 .grid{  
-    height: 432px;
-    width: 432px;
+    width: calc(48px * 9);
+    height: calc(48px * 9);
     display: flex;
     flex-wrap: wrap;
-    /* align-content: flex-start; */
+    /* align-content: flex-start; */    
 }
 
 .cell{
@@ -61,6 +61,8 @@ body{
     height: 48px;
     border: 1px dashed black;
     cursor: pointer;
+
+    background-size: contain; /*cosi contengo le immagini nelle celle*/
 }
 
 .cell-dark{
@@ -136,6 +138,48 @@ body{
 
 .button-full{
     width: 432px;
+}
+
+.river{
+    background-color: lightskyblue;
+}
+
+.road{
+    border-top: 1px dashed white;
+    border-bottom: 1px dashed white;
+    background-color: gray;
+}
+
+.wood{
+    background-image: url('images/trampoline.png');
+}
+
+.bus{
+    background-image: url('images/bus.png');
+}
+
+.car{
+    background-image: url('images/car.png');
+}
+
+.duck{
+    background-image: url('images/duck\ \(1\).png');
+}
+
+.duck-arrived{
+    background-image: url('images/duck.png');
+}
+
+.duck-hit{
+    background-image: url('images/chicken-leg.png');
+}
+
+.duck-drowned{
+    background-image: url('images/sos.png');
+}
+
+.river-duck{
+    background-image: url('images/rubber-duck.gif'), url('images/forest.png');
 }
 
 .hidden{
