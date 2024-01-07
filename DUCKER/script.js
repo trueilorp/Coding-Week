@@ -2,10 +2,10 @@
 
 const grid = document.querySelector('.grid');
 const stackBtn = document.querySelector('.stack');
-const scoreCounter = document.querySelector('.score-counter');
 const endGameScreen = document.querySelector('.end-game-screen');
 const endGameText = document.querySelector('.end-game-text');
 const playAgainButton = document.querySelector('.play-again');
+const timer = document.querySelector('.time-counter');
 
 const gridMatrix = [
     ['','','','','','','','',''],
@@ -24,6 +24,7 @@ const riverRows = [1,2];
 const roadRows = [4,5,6];
 const duckPosition = {y: 8, x: 4};
 let contentBeforeDuck = '';
+let time = 15;
 
 function applyCellStyle (cell, rowIndex, cellIndex){
     const isRowEven = rowIndex % 2 === 0;
@@ -96,6 +97,8 @@ function endGame(reason){
         endGameScreen.classList.add('win');
         endGameText.innerHTML = 'YOU<br>WIN';
     }
+    clearInterval(loop);
+    clearInterval(countdown);
     document.removeEventListener('keyup', moveDuck); //si mette in attesa di un tasto schiacciato
     gridMatrix[duckPosition.y][duckPosition.x] = reason;
     endGameScreen.classList.remove('hidden');
@@ -104,8 +107,8 @@ function endGame(reason){
 function checkDuckPosition(){
     if(duckPosition.y === victoryRow) endGame('duck-arrived');
     else if (contentBeforeDuck === 'river') endGame('duck-drowned');
-    else if (contentBeforeDuck === 'bus') endGame('duck-hit');
-    else if (contentBeforeDuck === 'car') endGame('duck-hit');
+    else if (contentBeforeDuck === 'bus' || contentBeforeDuck === 'car') endGame('duck-hit');
+    else if (time === 0) endGame('time-over');
 }
 
 
@@ -113,7 +116,30 @@ function checkDuckPosition(){
  * SVOLGIMENTO GIOCO
  */
 
-drawElements();
+drawElements(); //evita che lagghi quando deve caricare il gioco
+
+function moveRow(rowIndex){
+    const rowCells = gridMatrix[rowIndex];
+    const lastCell = rowCells.pop();
+
+    rowCells.unshift(lastCell);
+}
+
+function makeDinamic(){
+    gridMatrix[duckPosition.y][duckPosition.x] = contentBeforeDuck;
+    contentBeforeDuck = gridMatrix[duckPosition.y][duckPosition.x];
+    if(contentBeforeDuck === 'wood' && duckPosition.x < 8) duckPosition.x++;
+    for (let i = 1; i <= 6; i++){
+        moveRow(i);   
+    }
+    drawElements();
+    
+}
+
+function decrementTime(){
+    time--;
+    timer.innerText = String(time).padStart(5,0);
+}
 
 /*********
  * EVENTI DI GIOCO
@@ -123,3 +149,7 @@ document.addEventListener('keyup', moveDuck); //si mette in attesa di un tasto s
 playAgainButton.addEventListener('click', function(){
     location.reload();
 });
+
+
+const loop = setInterval(makeDinamic, 500);
+const countdown = setInterval(decrementTime, 1000);
