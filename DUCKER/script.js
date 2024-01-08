@@ -151,5 +151,5 @@ playAgainButton.addEventListener('click', function(){
 });
 
 
-const loop = setInterval(makeDinamic, 500);
+const loop = setInterval(makeDinamic, 300);
 const countdown = setInterval(decrementTime, 1000);
