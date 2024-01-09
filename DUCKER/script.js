@@ -16,9 +16,9 @@ const gridMatrix = [
     ['road', 'road', 'road', 'car', 'road','road', 'road', 'road', 'bus'],
     ['road', 'road', 'car', 'road', 'road','road', 'bus', 'road', 'road'],
     ['','','','','','','','',''],
-    ['','','','','','','','','']
+    ['','','','','','','','','']  
 ];
-
+ /*prova commit*/
 const victoryRow = 0;
 const riverRows = [1,2];
 const roadRows = [4,5,6];
