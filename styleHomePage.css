@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Definizione font*/
+@font-face {
+    font-family: 'PixelFont';
+    src: url('Font/PixelifySans-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Bubble';
+    src: url('Font/BubblegumSans-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Chicle';
+    src: url('Font/Chicle-Regular.ttf') format('truetype');
+}
+
+/* Stile per l'intestazione */
+h1{
+    color: 	#444c72; /* Colore del testo */
+    font-size: 60px; /* Dimensione del carattere */
+    text-align: center;
+    font-family: 'PixelFont', sans-serif;
+}
+
+/* Stile per i paragrafi */
+p{
+    color:	#4d6f7c; /* Colore del testo */
+    font-size: 16px; /* Dimensione del carattere */
+    margin-bottom: 10px; /* Margine inferiore */
+    text-align: center;
+}
+ /* Regole generiche */
+body{
+    padding: 16px;
+    line-height: 1;
+    color: rgb(0, 23, 50);
+    background-color: #df9390;
+    font-family: 'Bubble', sans-serif;
+    text-align: center;
+ }
+
+ 
+ /* Pannello*/
+
+button{
+    border: 2px solid rgb(0, 23, 50);
+    font-size: 24px;
+    font-family: 'Chicle', sans-serif;
+    text-transform: uppercase;
+    padding: 4px 20px 4px 20px;
+    cursor: pointer;
+    text-align: center;	
+    background-color: #ac9d9e;
+    border-radius: 8px;    
+}
+
+button:hover{
+    background-color: #6c868f;
+}
+
+
