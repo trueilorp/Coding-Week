@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>STACKER</title>
+        <meta charset="UTF-8"> <!-- Imposta la codifica dei caratteri -->
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Impostazioni viewport per dispositivi mobili -->
+        <meta name="description" content="Una breve descrizione della tua pagina">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>       
+        <div class="game-container">
+            <div class="game-panel">
+                <h1>STACKER</h1>
+                <div class="score">
+                    <span class="score-label">SCORE</span>
+                    <span class="score-counter">00000</span>
+                </div>
+            </div>
+
+            <!-- TABELLONE DI GIOCO -->
+            <main class="game-board">
+                <div class="grid"></div>
+                 
+                <div class="end-game-screen hidden">
+                    <h2 class="end-game-text" >Game Over</h2>
+                    <button class="button play-again">Play again</button>
+                </div>
+            </main>
+            <button class="button button-full stack">Stack</button>
+        </div>
+        <script type="text/javascript" src='script.js'></script>
+    </body>
+</html>
