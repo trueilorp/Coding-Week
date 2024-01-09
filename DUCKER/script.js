@@ -2,6 +2,7 @@
 
 const grid = document.querySelector('.grid');
 const stackBtn = document.querySelector('.stack');
+const scoreCounter = document.querySelector('.score-counter');
 const endGameScreen = document.querySelector('.end-game-screen');
 const endGameText = document.querySelector('.end-game-text');
 const playAgainButton = document.querySelector('.play-again');
@@ -16,7 +17,7 @@ const gridMatrix = [
     ['road', 'road', 'road', 'car', 'road','road', 'road', 'road', 'bus'],
     ['road', 'road', 'car', 'road', 'road','road', 'bus', 'road', 'road'],
     ['','','','','','','','',''],
-    ['','','','','','','','','']  
+    ['','','','','','','','','']
 ];
 
 const victoryRow = 0;
@@ -37,12 +38,10 @@ function applyCellStyle (cell, rowIndex, cellIndex){
 }
 function drawGrid(){
     grid.innerHTML = ''; //pulisco i contenuti precedenti
-
     gridMatrix.forEach(function(rowCells, rowIndex){
         rowCells.forEach(function(cellContent, cellIndex){
             const cell = document.createElement('div');
             cell.classList.add('cell');
-
             if(cellContent !== '') cell.classList.add(cellContent); //aggiungo ad ogni cella la sua classe di appartenenza, quindi se è river aggiungo la classe river
             
             //colore le righe in maniera appropiata
@@ -58,14 +57,11 @@ function drawGrid(){
         });
     });
 }
-
 function placeDuck (){
     //Prima di mettere la papera mi segno cosa cera
     contentBeforeDuck = gridMatrix[duckPosition.y][duckPosition.x];
-
     gridMatrix[duckPosition.y][duckPosition.x] = 'duck';
 }
-
 function moveDuck(event){
     //Prima di muovera la papera rimetto quello che c'era
     gridMatrix[duckPosition.y][duckPosition.x] = contentBeforeDuck;
@@ -85,13 +81,11 @@ function moveDuck(event){
     }
     drawElements();
 }
-
 function drawElements(){
     placeDuck();
     checkDuckPosition();
     drawGrid();
 }
-
 function endGame(reason){
     if(reason === 'duck-arrived'){
         endGameScreen.classList.add('win');
@@ -103,10 +97,11 @@ function endGame(reason){
     gridMatrix[duckPosition.y][duckPosition.x] = reason;
     endGameScreen.classList.remove('hidden');
 }
-
 function checkDuckPosition(){
     if(duckPosition.y === victoryRow) endGame('duck-arrived');
     else if (contentBeforeDuck === 'river') endGame('duck-drowned');
+    else if (contentBeforeDuck === 'bus') endGame('duck-hit');
+    else if (contentBeforeDuck === 'car') endGame('duck-hit');
     else if (contentBeforeDuck === 'bus' || contentBeforeDuck === 'car') endGame('duck-hit');
     else if (time === 0) endGame('time-over');
 }
@@ -133,7 +128,7 @@ function makeDinamic(){
         moveRow(i);   
     }
     drawElements();
-    
+
 }
 
 function decrementTime(){
@@ -144,12 +139,11 @@ function decrementTime(){
 /*********
  * EVENTI DI GIOCO
  */
-
 document.addEventListener('keyup', moveDuck); //si mette in attesa di un tasto schiacciato
 playAgainButton.addEventListener('click', function(){
     location.reload();
 });
 
 
-const loop = setInterval(makeDinamic, 300);
+const loop = setInterval(makeDinamic, 500);
 const countdown = setInterval(decrementTime, 1000);
