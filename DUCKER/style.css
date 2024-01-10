@@ -3,6 +3,21 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/*Definizione font*/
+@font-face {
+    font-family: 'PixelFont';
+    src: url('Font/PixelifySans-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Bubble';
+    src: url('Font/BubblegumSans-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Chicle';
+    src: url('Font/Chicle-Regular.ttf') format('truetype');
+}
+
 /* Stile per l'intestazione */
 h1{
     color: #2a8d39; /* Colore del testo */
@@ -20,7 +35,7 @@ body{
     line-height: 1;
     color: rgb(0, 23, 50);
     background-color: rgb(232, 238, 216);
-    font-family: 'Darker Grotesque', sans-serif;
+    font-family: 'Chicle', sans-serif;
  }
 .game-container{
     width: calc(48px * 9);

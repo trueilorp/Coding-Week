@@ -23,16 +23,18 @@ h1{
     color: 	#444c72; /* Colore del testo */
     font-size: 60px; /* Dimensione del carattere */
     text-align: center;
-    font-family: 'PixelFont', sans-serif;
+    font-family: 'PixelFont', sans-serif;  
 }
 
 /* Stile per i paragrafi */
 p{
     color:	#4d6f7c; /* Colore del testo */
-    font-size: 16px; /* Dimensione del carattere */
-    margin-bottom: 10px; /* Margine inferiore */
+    font-size: 20px; /* Dimensione del carattere */
+    margin-bottom: 30px; /* Margine inferiore */
+    margin-top: 30px;
     text-align: center;
 }
+
  /* Regole generiche */
 body{
     padding: 16px;
@@ -43,12 +45,21 @@ body{
     text-align: center;
  }
 
- 
+ /* Stili per il footer */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+  
  /* Pannello*/
 
-button{
+.button{
     border: 2px solid rgb(0, 23, 50);
-    font-size: 24px;
+    font-size: 40px;
     font-family: 'Chicle', sans-serif;
     text-transform: uppercase;
     padding: 4px 20px 4px 20px;
@@ -58,8 +69,12 @@ button{
     border-radius: 8px;    
 }
 
-button:hover{
+.button:hover{
     background-color: #6c868f;
 }
 
-
+.footer-text{
+    background-color: #4d6f7c;
+    color: #df9390;
+    padding: 20px;
+}
