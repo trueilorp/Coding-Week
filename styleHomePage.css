@@ -73,6 +73,44 @@ footer {
     background-color: #6c868f;
 }
 
+.box{ animation: rotate 2s linear infinite;
+}
+@keyframes rotate{
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.button-rotation {
+    border: 10px solid #4d6f7c;
+    padding: 8px;
+    background-color: #df9390;
+    border-radius: 10px;
+    position: absolute;
+}
+
+.rotation-upr {
+    top: 20px;
+    right: 20px;
+}
+
+.rotation-upl {
+    top: 20px;
+    left: 20px;
+}
+
+.rotation-downr,
+.rotation-downl {
+    bottom: 50%;
+}
+
+.rotation-downr {
+    right: 20px;
+}
+
+.rotation-downl {
+    left: 20px;
+}
+
 .footer-text{
     background-color: #4d6f7c;
     color: #df9390;
