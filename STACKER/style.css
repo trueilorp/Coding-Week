@@ -25,13 +25,13 @@ body{
     font-family: 'Darker Grotesque', sans-serif;
  }
 
- .game-container{
+.game-container{
     width: calc((48px * 6) + 4px);
     /* border: 1px dashed black; */
  }
 
  /* Pannello di gioco */
- h1{
+h1{
     font-size: 40px;
  }
 
