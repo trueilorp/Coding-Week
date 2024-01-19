@@ -92,10 +92,11 @@ function checkLost(){
     for (let i=0; i<currentRow.length; i++){
         if(currentRow[i] === 1 && prevRow[i] === 0){
             currentRow[i] = 0;
-            barSize--;
+            barSize=barSize-1;
         }
     }
 
+    console.log(barSize);
     if (barSize === 0){
         isGameOver = true;
         clearInterval(t);
@@ -103,9 +104,8 @@ function checkLost(){
     }
 }
 
-function checkWin()
-{
-    if (currentRowIndex === 0){
+function checkWin(){
+    if (currentRowIndex === 0 && barSize !== 0){
         isGameOver = true;
         clearInterval(t);
         endGame(true);
@@ -135,7 +135,6 @@ function onStack (){
 function updateScore(){
     score++;
     scoreCounter.innerText = score.toString().padStart(5, '0'); //pad start scrive gli zeri fino a che le cifre sono 5
-
 }
 
 function endGame(isVictory){
@@ -159,4 +158,4 @@ playAgainButton.addEventListener('click', function(){
     location.reload();
 });
 
-t = setInterval(main, 100);
+t = setInterval(main, 300);
